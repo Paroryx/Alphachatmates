@@ -23,12 +23,14 @@ import * as Ably from "ably/promises";
     
     await channel.subscribe((msg: Types.Message) => {
         console.log(msg);
-       const messageElement = document.createElement("div");
-        messageElement.classList.add("messages");
-        messageElement.innerHTML = msg.data;
-
-        message.appendChild(messageElement);
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("message");
+        messageElement.textContent = msg.data; // Verwende textContent, um HTML-Injektion zu vermeiden
+    
+        const messagesContainer = document.getElementById("messages");
+        messagesContainer.appendChild(messageElement);
     });
+
 })();
 
 export { };
