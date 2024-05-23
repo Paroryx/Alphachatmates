@@ -23,7 +23,7 @@ import * as Ably from "ably/promises";
         const messageElement = document.createElement("div");
         messageElement.classList.add("message");
         if(msg.name === "welcome-message"){
-            messageElement.content = "<font style='color:yellow'>"+msg.data+"</font>";
+            messageElement.innerHTML = `<font style='color:yellow'>${msg.data}</font>`;
         }else{
             messageElement.textContent = msg.data; // Verwende textContent, um HTML-Injektion zu vermeiden
         }
