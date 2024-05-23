@@ -19,7 +19,8 @@ import * as Ably from "ably/promises";
         channel.publish({name: "chat-message", data: input.value});
         input.value = "";
         input.focus();
-    })
+    });
+    
     await channel.subscribe((msg: Types.Message) => {
        const messageElement = document.createElement("div");
         messageElement.classList.add("message");
