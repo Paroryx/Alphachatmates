@@ -22,13 +22,16 @@ import * as Ably from "ably/promises";
         console.log(msg);
         const messageElement = document.createElement("div");
         messageElement.classList.add("message");
-        messageElement.textContent = msg.data; // Verwende textContent, um HTML-Injektion zu vermeiden
-    
+        if(msg.name === "welcome-message"){
+            messageElement.content = "<font style='color:yellow'>"+msg.data+"</font>";
+        }else{
+            messageElement.textContent = msg.data; // Verwende textContent, um HTML-Injektion zu vermeiden
+        }
         const messagesContainer = document.getElementById("messages");
         messagesContainer.appendChild(messageElement);
     });
     
-    channel.publish("welcome-message","<font style='color:yellow'>a new user joined the chat</font>");
+    channel.publish("welcome-message","a new user joined the chat");
 
 })();
 
