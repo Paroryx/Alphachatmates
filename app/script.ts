@@ -9,12 +9,17 @@ import * as Ably from "ably/promises";
     const ably = new Ably.Realtime.Promise({ authUrl: `/api/ably-token-request?clientId=${optionalClientId}` });
     const channel = ably.channels.get("some-channel-name");
 
-    await channel.subscribe((msg: Types.Message) => {
-        console.log("Ably message received", msg);
-        document.getElementById("response").innerHTML += "<br />" + JSON.stringify(msg);
-    });
+    const messages = document.getElementById("messages");
+    const form = document.getElementById("form");
+    const input = document.getElementById("input") as HTMLInputElement;
 
-    channel.publish("hello-world-message", { message: "Hello world!" });
+    form.addEventListener("submit", (e:SubmitEvent) => {
+        e.preventDefault();
+
+        channel.publish({name: "chat-message", data: input.value});
+        input.value = "";
+        input.focus();
+    }) 
 })();
 
 export { };
