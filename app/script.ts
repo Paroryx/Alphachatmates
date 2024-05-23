@@ -23,7 +23,7 @@ import * as Ably from "ably/promises";
     
     await channel.subscribe((msg: Types.Message) => {
        const messageElement = document.createElement("div");
-        messageElement.classList.add("message");
+        messageElement.classList.add("messages");
         messageElement.innerHTML = msg.data;
 
         message.appendChild(messageElement);
