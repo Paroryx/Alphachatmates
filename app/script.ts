@@ -2,7 +2,6 @@ import { Types } from "ably/promises";
 import * as Ably from "ably/promises";
 
 (async () => {
-    channel.publish("welcome-message", { message: "<font style='color:yellow'>a new user joined the chat</font>" });
     const optionalClientId = "optionalClientId"; // When not provided in authUrl, a default will be used.
     const ably = new Ably.Realtime.Promise({ authUrl: `/api/ably-token-request?clientId=${optionalClientId}` });
     const channel = ably.channels.get("some-channel-name");
@@ -29,6 +28,7 @@ import * as Ably from "ably/promises";
         messagesContainer.appendChild(messageElement);
     });
     
+    channel.publish("welcome-message", { message: "<font style='color:yellow'>a new user joined the chat</font>" });
 
 })();
 
