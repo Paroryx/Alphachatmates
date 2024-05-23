@@ -28,7 +28,7 @@ import * as Ably from "ably/promises";
         messagesContainer.appendChild(messageElement);
     });
     
-    channel.publish("welcome-message", { message: "<font style='color:yellow'>a new user joined the chat</font>" });
+    channel.publish("welcome-message","<font style='color:yellow'>a new user joined the chat</font>");
 
 })();
 
