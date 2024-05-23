@@ -22,11 +22,16 @@ import * as Ably from "ably/promises";
         console.log(msg);
         const messageElement = document.createElement("div");
         messageElement.classList.add("message");
-        if(msg.name === "welcome-message"){
-            messageElement.innerHTML = `<font style='color:yellow'>${msg.data}</font>`;
-        }else{
-            messageElement.textContent = msg.data; // Verwende textContent, um HTML-Injektion zu vermeiden
+    
+        // Füge eine eindeutige ID basierend auf der Nachrichten-ID hinzu
+        messageElement.id = msg.id + "-message";
+    
+        if (msg.name === "welcome-message") {
+            messageElement.innerHTML = `<span class="welcome-message">${msg.data}</span>`;
+        } else {
+            messageElement.textContent = msg.data;
         }
+    
         const messagesContainer = document.getElementById("messages");
         messagesContainer.appendChild(messageElement);
     });
