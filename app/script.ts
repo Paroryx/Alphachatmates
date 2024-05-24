@@ -30,7 +30,7 @@ import * as Ably from "ably/promises";
         if (msg.name === "welcome-message") {
             messageElement.innerHTML = `<span class="welcome-message">${msg.data}</span>`;
         } else {
-            var date = new Date(currentDate.getTime());
+            var date = new Date(msg.timestamp);
             var hours = ('0' + date.getHours()).slice(-2);
             var minutes = ('0' + date.getMinutes()).slice(-2);
             var seconds = ('0' + date.getSeconds()).slice(-2);
