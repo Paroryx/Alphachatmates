@@ -24,17 +24,17 @@ import * as Ably from "ably/promises";
         const messageElement = document.createElement("div");
         messageElement.classList.add("message");
     
-        // Füge eine eindeutige ID basierend auf der Nachrichten-ID hinzu
         messageElement.id = msg.id + "-message";
     
         if (msg.name === "welcome-message") {
             messageElement.innerHTML = `<span class="welcome-message">${msg.data}</span>`;
         } else {
-            var date = new Date(msg.timestamp);
+            var timestamp = Date.now(); 
+            var date = new Date(timestamp);
             var hours = ('0' + date.getHours()).slice(-2);
             var minutes = ('0' + date.getMinutes()).slice(-2);
             var seconds = ('0' + date.getSeconds()).slice(-2);
-            var formattedDateTime = hours + ':' + minutes + ':' + seconds;
+            var formattedTime = hours + ':' + minutes + ':' + seconds;
 
             messageElement.textContent = formattedDateTime+" "+msg.data;
         }
