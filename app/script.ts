@@ -34,7 +34,7 @@ import * as Ably from "ably/promises";
             var minutes = ('0' + date.getMinutes()).slice(-2);
             var seconds = ('0' + date.getSeconds()).slice(-2);
             var formattedDateTime = hours + ':' + minutes + ':' + seconds;
-            messageElement.textContent = formattedDateTime+" "+username + " > " + msg.data;
+            messageElement.textContent = msg.data;
         }
     
         const messagesContainer = document.getElementById("messages");
