@@ -11,22 +11,17 @@
 
 <body onload="setUsername()">
     <div>
-        <label for="usernameInput">Enter your username:</label>
-        <input type="text" id="usernameInput">
-        <button onclick="setUsername()">Set Username</button>
-    </div>
-    <div>
+        <p>Username:</p>
         <p id="username"></p>
     </div>
 
     <script>
         function setUsername() {
-            var username = document.getElementById("usernameInput").value;
+            var username = prompt("Please enter a valid username");
             if (username.trim() === "") {
-                alert("Please enter a valid username.");
-                return;
+                setUsername();
             }
-            document.getElementById("username").textContent = "Username: " + username;
+            document.getElementById("username").textContent = username;
         }
     </script>
     <main>
