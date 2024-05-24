@@ -35,7 +35,7 @@ main {
     border-radius: 15px;
     margin-bottom: 20px;
     max-width: 70%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schatteneffekt hinzugefügt */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .message-container p {
@@ -43,11 +43,18 @@ main {
 }
 
 .messages {
-    color: #00ffff; /* Hervorhebung der Standardnachrichten in Cyan */
+    color: #00ffff;
 }
 
 .welcome-message {
-    color: #8B8000; /* Hervorhebung der Begrüßungsnachricht in Gelb */
+    color: #8B8000;
+}
+
+.username {
+    border: 2px solid #fd5d93;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 form {
@@ -63,7 +70,7 @@ input[type="text"] {
     font-size: 16px;
     background-color: rgba(255, 255, 255, 0.8);
     color: #000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schatteneffekt hinzugefügt */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button[type="submit"] {
@@ -75,7 +82,7 @@ button[type="submit"] {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schatteneffekt hinzugefügt */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button[type="submit"]:hover {
