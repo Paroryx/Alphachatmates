@@ -30,7 +30,7 @@ import * as Ably from "ably/promises";
         if (msg.name === "welcome-message") {
             messageElement.innerHTML = `<span class="welcome-message">${msg.data}</span>`;
         } else {
-            var date = Date.now();
+            var date = new Date(msg.timestamp);
             var hours = ('0' + date.getHours()).slice(-2);
             var minutes = ('0' + date.getMinutes()).slice(-2);
             var seconds = ('0' + date.getSeconds()).slice(-2);
@@ -42,7 +42,7 @@ import * as Ably from "ably/promises";
         const messagesContainer = document.getElementById("messages");
         messagesContainer.appendChild(messageElement);
     });
-    var date = new Date(msg.timestamp);
+    var date = Date.now();
     var hours = ('0' + date.getHours()).slice(-2);
     var minutes = ('0' + date.getMinutes()).slice(-2);
     var seconds = ('0' + date.getSeconds()).slice(-2);
