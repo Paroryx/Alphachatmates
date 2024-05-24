@@ -9,7 +9,15 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body onload="setUsername()">
+    <script>
+        function setUsername(){
+            document.getElementById("username").text = input("Username");
+        }
+    </script>
+    <div>
+        <p id="username"></p>
+    </div>
     <main>
         <div id="messages"></div>
         <form id="form">
