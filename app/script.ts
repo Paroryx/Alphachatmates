@@ -14,7 +14,7 @@ import * as Ably from "ably/promises";
     form.addEventListener("submit", (e:SubmitEvent) => {
         e.preventDefault();
 
-        channel.publish({name: "chat-message", data: input.value});
+        channel.publish({name: "chat-message", data: username+" >"+input.value});
         input.value = "";
         input.focus();
     });
