@@ -9,7 +9,7 @@ import * as Ably from "ably/promises";
     const messages = document.getElementById("messages");
     const form = document.getElementById("form");
     const input = document.getElementById("input") as HTMLInputElement;
-    const username = document.getElementById("username").textContent;
+    const username = setUsername();
 
     form.addEventListener("submit", (e:SubmitEvent) => {
         e.preventDefault();
