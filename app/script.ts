@@ -2,7 +2,6 @@ import { Types } from "ably/promises";
 import * as Ably from "ably/promises";
 
 (async () => {
-    const username = input("Username");
     const optionalClientId = "optionalClientId"; // When not provided in authUrl, a default will be used.
     const ably = new Ably.Realtime.Promise({ authUrl: `/api/ably-token-request?clientId=${optionalClientId}` });
     const channel = ably.channels.get("some-channel-name");
@@ -10,6 +9,7 @@ import * as Ably from "ably/promises";
     const messages = document.getElementById("messages");
     const form = document.getElementById("form");
     const input = document.getElementById("input") as HTMLInputElement;
+    const username = document.getElementById("username");
 
     form.addEventListener("submit", (e:SubmitEvent) => {
         e.preventDefault();
