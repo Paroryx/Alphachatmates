@@ -2,7 +2,7 @@ body {
   background-color: antiquewhite;
  
 }
-#welcome-message {
+.welcome-message {
     color: #8B8000;
 }
 .message{
