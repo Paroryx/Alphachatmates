@@ -17,13 +17,20 @@
 
     <script>
         function setUsername() {
-            let username = prompt("Please enter a valid username");
-            if (username.trim() === "") {
-                setUsername();
-            }
-            document.getElementById("username").textContent = username;
-            return username;
-        }
+    let username = prompt("Please enter a valid username");
+    
+    // Validierung der Benutzereingabe
+    if (!username || username.trim() === "") {
+        alert("Username cannot be empty");
+        return setUsername();
+    }
+
+    // Entfernt potentiell gefährliche Zeichen
+    username = username.replace(/[^a-zA-Z0-9_-]/g, '');
+
+    document.getElementById("username").textContent = username;
+    return username;
+}
     </script>
     <main>
         <div id="messages"></div>
