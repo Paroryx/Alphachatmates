@@ -29,18 +29,19 @@ import * as Ably from "ably/promises";
         if (msg.name === "welcome-message") {
             messageElement.innerHTML = `<span class="welcome-message">${msg.data}</span>`;
         } else {
-            messageElement.textContent = msg.data;
+            var date = new Date(msg.timestamp);
+            var hours = ('0' + date.getHours()).slice(-2);
+            var minutes = ('0' + date.getMinutes()).slice(-2);
+            var seconds = ('0' + date.getSeconds()).slice(-2);
+            var formattedDateTime = hours + ':' + minutes + ':' + seconds;
+            messageElement.textContent = formattedDateTime+" "+username + " > " + msg.data;
         }
     
         const messagesContainer = document.getElementById("messages");
         messagesContainer.appendChild(messageElement);
     });
-    var date = Date.now();
-    var hours = ('0' + date.getHours()).slice(-2);
-    var minutes = ('0' + date.getMinutes()).slice(-2);
-    var seconds = ('0' + date.getSeconds()).slice(-2);
-    var formattedDateTime = hours + ':' + minutes + ':' + seconds;
-    channel.publish("welcome-message",`${formattedDateTime} - ${username} joined the chat`);
+    
+    channel.publish("welcome-message",`${Date.now()} - ${username} joined the chat`);
 
 })();
 
