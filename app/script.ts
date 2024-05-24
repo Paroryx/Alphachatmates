@@ -40,11 +40,11 @@ import * as Ably from "ably/promises";
         const messagesContainer = document.getElementById("messages");
         messagesContainer.appendChild(messageElement);
     });
-    var date = new Date(Date.now());
-    var hours = ('0' + date.getHours()).slice(-2);
-    var minutes = ('0' + date.getMinutes()).slice(-2);
-    var seconds = ('0' + date.getSeconds()).slice(-2);
-    var formattedDateTime = hours + ':' + minutes + ':' + seconds;
+    let date = new Date(Date.now());
+    let hours = ('0' + date.getHours()).slice(-2);
+    let minutes = ('0' + date.getMinutes()).slice(-2);
+    let seconds = ('0' + date.getSeconds()).slice(-2);
+    let formattedDateTime = hours + ':' + minutes + ':' + seconds;
     channel.publish("welcome-message",`${formattedDateTime} - ${username} joined the chat`);
 
 })();
