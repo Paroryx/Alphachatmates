@@ -10,14 +10,25 @@
 </head>
 
 <body onload="setUsername()">
-    <script>
-        function setUsername(){
-            document.getElementById("username").value = prompt("Username");
-        }
-    </script>
+    <div>
+        <label for="usernameInput">Enter your username:</label>
+        <input type="text" id="usernameInput">
+        <button onclick="setUsername()">Set Username</button>
+    </div>
     <div>
         <p id="username"></p>
     </div>
+
+    <script>
+        function setUsername() {
+            var username = document.getElementById("usernameInput").value;
+            if (username.trim() === "") {
+                alert("Please enter a valid username.");
+                return;
+            }
+            document.getElementById("username").textContent = "Username: " + username;
+        }
+    </script>
     <main>
         <div id="messages"></div>
         <form id="form">
