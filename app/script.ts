@@ -20,7 +20,7 @@ import * as Ably from "ably/promises";
     });
     
     await channel.subscribe((msg: Types.Message) => {
-        console.log(msg);
+        //console.log(msg);
         const messageElement = document.createElement("div");
         messageElement.classList.add("message");
     
