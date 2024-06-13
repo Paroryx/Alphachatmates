@@ -53,3 +53,12 @@ import * as Ably from "ably/promises";
 })();
 
 export { };
+function setUsername() {
+            let username = prompt("Please enter a valid username");
+            
+            if (!username || username.trim() === "") {
+                alert("Username cannot be empty");
+                return setUsername();
+            }
+            return username;
+        }
