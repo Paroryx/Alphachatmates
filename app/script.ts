@@ -12,19 +12,17 @@ import * as Ably from "ably/promises";
     const username = setUsername().replace(/[^a-zA-Z0-9_-]/g, '');
     document.getElementById("username").textContent = username;
     
-    form.addEventListener("submit", (e:SubmitEvent) => {
+    form.addEventListener("submit", (e: SubmitEvent) => {
         e.preventDefault();
-        if(input.value != ""){
-            channel.publish({name: "chat-message", data: username+" > "+input.value});
+        if (input.value != "") {
+            channel.publish({ name: "chat-message", data: username + " > " + input.value });
         }
         input.value = "";
         input.focus();
     });
     
     await channel.subscribe((msg: Types.Message) => {
-        //console.log(msg);
         const messageElement = document.createElement("div");
-        
         messageElement.classList.add("message");
         messageElement.id = msg.id + "-message";
     
@@ -36,28 +34,35 @@ import * as Ably from "ably/promises";
             var minutes = ('0' + date.getMinutes()).slice(-2);
             var seconds = ('0' + date.getSeconds()).slice(-2);
             var formattedDateTime = hours + ':' + minutes + ':' + seconds;
-            messageElement.textContent = formattedDateTime+" "+msg.data;
+
+            // Check if message is a GIF link
+            if (msg.data.trim().match(/\.(gif)$/i)) {
+                messageElement.innerHTML = `${formattedDateTime} ${msg.data.split('>')[0]} > <img src="${msg.data.split('>')[1].trim()}" class="message-image">`;
+            } else {
+                messageElement.textContent = formattedDateTime + " " + msg.data;
+            }
         }
     
         const messagesContainer = document.getElementById("messages");
         messagesContainer.appendChild(messageElement);
     });
+
     let date = new Date(Date.now());
     let hours = ('0' + date.getHours()).slice(-2);
     let minutes = ('0' + date.getMinutes()).slice(-2);
     let seconds = ('0' + date.getSeconds()).slice(-2);
     let formattedDateTime = hours + ':' + minutes + ':' + seconds;
-    channel.publish("welcome-message",`${formattedDateTime} - ${username} joined the chat`);
-
+    channel.publish("welcome-message", `${formattedDateTime} - ${username} joined the chat`);
 })();
 
 export { };
+
 function setUsername() {
-            let username = prompt("Please enter a valid username");
-            
-            if (!username || username.trim() === "") {
-                alert("Username cannot be empty");
-                return setUsername();
-            }
-            return username;
-        }
+    let username = prompt("Please enter a valid username");
+    
+    if (!username || username.trim() === "") {
+        alert("Username cannot be empty");
+        return setUsername();
+    }
+    return username;
+}
