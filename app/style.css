@@ -1,69 +1,84 @@
 body {
-    background-image: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    background-image: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     color: #fff;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
+    margin: 20px;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
     text-align: center;
-    padding: 20px 0;
+    padding-bottom: 20px;
 }
 
 h1 {
     font-size: 36px;
     margin: 0;
+    color: #fd5d93;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
+.user-info {
+    margin-top: 10px;
+    text-align: center;
 }
 
-.message-container {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    max-width: 70%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.message-container p {
-    margin: 0;
-}
-
-.messages {
-    color: #00ffff;
-}
-
-.welcome-message {
-    color: #8B8000;
+.username-label {
+    font-size: 18px;
 }
 
 .username {
+    font-size: 18px;
     border: 2px solid #fd5d93;
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    display: inline-block;
+    margin-top: 5px;
 }
 
-form {
+main {
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
 }
 
-input[type="text"] {
+.messages {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.chat-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.chat-input {
+    width: 80%;
     padding: 10px;
     border: none;
     border-radius: 5px 0 0 5px;
@@ -73,7 +88,8 @@ input[type="text"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button[type="submit"] {
+.chat-button {
+    width: 20%;
     background-color: #fd5d93;
     color: #fff;
     border: none;
@@ -85,6 +101,6 @@ button[type="submit"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button[type="submit"]:hover {
+.chat-button:hover {
     background-color: #ec250d;
 }
