@@ -104,3 +104,6 @@ main {
 .chat-button:hover {
     background-color: #ec250d;
 }
+.welcome-message {
+    foreground-color: yellow;
+}
