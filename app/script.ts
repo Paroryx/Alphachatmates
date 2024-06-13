@@ -9,8 +9,10 @@ import * as Ably from "ably/promises";
     const messages = document.getElementById("messages");
     const form = document.getElementById("form");
     const input = document.getElementById("input") as HTMLInputElement;
-    const username = document.getElementById("username").text;
-
+    const username = setUsername();
+    username = username.replace(/[^a-zA-Z0-9_-]/g, '');
+    document.getElementById("username").textContent = username;
+    
     form.addEventListener("submit", (e:SubmitEvent) => {
         e.preventDefault();
         if(input.value != ""){
