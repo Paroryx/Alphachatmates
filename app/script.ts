@@ -26,15 +26,7 @@ import * as Ably from "ably/promises";
         const messageElement = document.createElement("div");
         //messageElement.classList.add("message");
         const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif'];
-        for (const ext of imageExtensions) {
-            if (content.includes(ext)) {
-                const imgElement = document.createElement("img");
-                imgElement.src = content;
-                imgElement.classList.add("message-image");
-                messageElement.appendChild(imgElement);
-                break;
-            }
-        }
+        messageElement.classList.add("message");
         messageElement.id = msg.id + "-message";
     
         if (msg.name === "welcome-message") {
