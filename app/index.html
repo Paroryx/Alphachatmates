@@ -40,10 +40,6 @@
                 alert("Username cannot be empty");
                 return setUsername();
             }
-
-            username = username.replace(/[^a-zA-Z0-9_-]/g, '');
-
-            document.getElementById("username").textContent = username;
             return username;
         }
     </script>
