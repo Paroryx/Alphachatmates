@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>EasyChat</title>
+    <title>Chat Application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8">
     <script src="./script.ts" type="module"></script>
@@ -12,21 +12,17 @@
 <body>
     <div class="container">
         <header>
-            <h1>EasyChat</h1>
+            <h1>Welcome to Chat</h1>
+            <div class="user-info">
+                <p class="username-label"><strong>Username:</strong></p>
+                <p id="username" class="username"></p>
+            </div>
         </header>
 
         <main>
-            <div id="messages" class="messages">
-                <div class="message message-sent">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-                </div>
-                <div class="message message-received">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <div class="avatar"></div>
-                </div>
-            </div>
+            <div id="messages" class="messages"></div>
             <form id="form" class="chat-form">
-                <input type="text" placeholder="Type..." id="input" autocomplete="off" class="chat-input">
+                <input type="text" placeholder="Type a message..." id="input" autocomplete="off" class="chat-input">
                 <button type="submit" class="chat-button">Send</button>
             </form>
         </main>
