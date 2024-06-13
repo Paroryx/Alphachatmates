@@ -2,44 +2,51 @@
 <html lang="en">
 
 <head>
-    <title>Chat</title>
+    <title>Chat Application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8">
-    <script src="./script.ts" type="module"></script>
+    <script src="./script.js" type="module"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <div>
-        <p>Username:</p>
-        <p id="username"></p>
+    <div class="container">
+        <header>
+            <h1>Welcome to Chat</h1>
+            <div class="user-info">
+                <p class="username-label"><strong>Username:</strong></p>
+                <p id="username" class="username"></p>
+            </div>
+        </header>
+
+        <main>
+            <div id="messages" class="messages"></div>
+            <form id="form" class="chat-form">
+                <input type="text" placeholder="Type a message..." id="input" autocomplete="off" class="chat-input">
+                <button type="submit" class="chat-button">Send</button>
+            </form>
+        </main>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setUsername();
+        });
+
         function setUsername() {
-    let username = prompt("Please enter a valid username");
-    
-    // Validierung der Benutzereingabe
-    if (!username || username.trim() === "") {
-        alert("Username cannot be empty");
-        return setUsername();
-    }
+            let username = prompt("Please enter a valid username");
+            
+            if (!username || username.trim() === "") {
+                alert("Username cannot be empty");
+                return setUsername();
+            }
 
-    // Entfernt potentiell gefährliche Zeichen
-    username = username.replace(/[^a-zA-Z0-9_-]/g, '');
+            username = username.replace(/[^a-zA-Z0-9_-]/g, '');
 
-    document.getElementById("username").textContent = username;
-    return username;
-}
+            document.getElementById("username").textContent = username;
+            return username;
+        }
     </script>
-    <main>
-        <div id="messages"></div>
-        <form id="form">
-            <input type="text" placeholder="Type a message..." id="input" autocomplete="off">
-            <button type="submit">Send</button>
-        </form>
-    </main>
-    
 </body>
 
 </html>
